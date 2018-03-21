@@ -1,0 +1,40 @@
+
+<div>
+	<div id="left_side" style="width: 20%;  float: left;">
+		<ul>
+			{% for user in users %}
+				<li>
+					<a href="{% url 'chat:chat_conversation' sender=user.username %} ">
+						{{ user }}
+					</a>					
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div id="right_side" style="width: 80%; float: left;">
+		<ul style="height: 400px; overflow: scroll;">
+			{% for object in object_list %}
+				<li style="border: 1px dashed #ccc;">
+					<p>
+						Sender: {{ object.sender }} at {{ object.created_time }}
+					</p>
+					<p>
+						Text:
+						{{ object.text }}
+					</p>
+				</li>
+			{% endfor %}
+		</ul>
+		<div id="chat-wrapper">
+			<div id="chat-list"></div>
+			<form id="chat_text_input" action="" method="post">
+				{% csrf_token %}
+				<textarea name="text" id="" cols="30" rows="10"></textarea>
+				<input type="submit">
+			</form>
+		</div>
+	</div>	
+</div>
+
+
+

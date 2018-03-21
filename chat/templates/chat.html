@@ -1,0 +1,14 @@
+<html>
+	<head>Chat page</head>
+	<body>		
+		<ul>
+			{% for user in users %}
+				<li>
+					<a href="/chat/{{ user.username }}">
+						{{ user }}
+					</a>					
+				</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
